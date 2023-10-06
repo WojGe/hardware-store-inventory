@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +11,11 @@
     <div class="pt-10 mx-36">   <!-- Content wrapper -->
         <div class="bg-white p-4 mx-auto rounded-lg shadow-lg">
 
-            <div class="float-right">   <!-- Button wrapper -->
-                <button class="bg-blue-100 text-blue-600 px-5 p-3 mb-3 rounded-lg font-bold hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all">Add device</button>
+            <div class="flex">   <!-- Button wrapper -->
+                <button class="bg-blue-100 text-blue-600 px-5 p-3 mb-3 ml-auto rounded-lg font-bold hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all">Add device</button>
             </div>
 
-            <div class="clear-both overflow-auto">   <!-- Table wrapper -->
+            <div class="overflow-auto">   <!-- Table wrapper -->
                 <table class="w-full border-x-2 border-gray-200 text-left whitespace-nowrap table-fixed [&>tbody>*:nth-child(odd)]:bg-white [&>tbody>*:nth-child(even)]:bg-gray-100">
                     <thead class="bg-gray-200 border-b-2 border-gray-300">
                         <tr>
