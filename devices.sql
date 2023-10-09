@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 06, 2023 at 09:42 AM
+-- Generation Time: Oct 09, 2023 at 12:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,7 +34,6 @@ CREATE TABLE `devices` (
   `model` text NOT NULL,
   `quantity` int(11) NOT NULL,
   `condit` varchar(11) NOT NULL,
-  `image_url` text NOT NULL,
   `details` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -42,12 +41,12 @@ CREATE TABLE `devices` (
 -- Dumping data for table `devices`
 --
 
-INSERT INTO `devices` (`id`, `category`, `brand`, `model`, `quantity`, `condit`, `image_url`, `details`) VALUES
-(1, 'processor', 'Intel', 'Core i7-13700K', 4, 'new', '', NULL),
-(2, 'graphics card', 'Nvidia', 'GeForce RTX 4090', 2, 'new', '', NULL),
-(3, 'motherboard', 'MSI', 'Z270 Gaming Plus', 3, 'pre-owned', '', NULL),
-(4, 'mouse', 'Logitech', 'M185', 12, 'new', '', NULL),
-(5, 'laptop', 'Lenovo', 'Thinkpad T410', 1, 'pre-owned', '', NULL);
+INSERT INTO `devices` (`id`, `category`, `brand`, `model`, `quantity`, `condit`, `details`) VALUES
+(1, 'processor', 'Intel', 'Core i7-13700K', 4, 'new', NULL),
+(2, 'graphics card', 'Nvidia', 'GeForce RTX 4090', 2, 'new', NULL),
+(3, 'motherboard', 'MSI', 'Z270 Gaming Plus', 3, 'pre-owned', NULL),
+(4, 'mouse', 'Logitech', 'M185', 12, 'new', NULL),
+(5, 'laptop', 'Lenovo', 'Thinkpad T410', 1, 'pre-owned', NULL);
 
 --
 -- Indexes for dumped tables
