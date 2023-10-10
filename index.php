@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -7,8 +10,46 @@
     <script src="https://cdn.tailwindcss.com"></script>   <!-- Implementing TailwindCSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <!-- Implementing FontAwesome (font icons) -->
 </head>
-<body class="bg-gray-100 text-gray-700">
-    <section class="pt-10 mx-36">   <!-- Content wrapper -->
+<body class="bg-gray-100 text-gray-700 transition-all">
+    <?php
+        if($_SESSION){
+            if($_SESSION['alert_type'] == 0){   // Success Alert
+                ?>
+                <section class="alert fixed right-2 bottom-2" id="SuccessAlert">   
+                    <div class="text-green-600 bg-green-100 hover:text-white hover:bg-green-600 rounded-lg transition-all flex justify-between shadow-lg p-3">
+                        <p class="self-center"><i class="scale-150 px-2 fa fa-check-circle"></i></p>
+                        <p class="self-center px-5"><?php echo $_SESSION['alert']; ?></p>
+                        <button class="px-3 py-1 m-1 font-bold hover:text-green-900 transition-all" onclick="PopupOut('SuccessAlert')"><i class="fa fa-close"></i></button>
+                    </div>
+                </section>
+                <?php
+            };
+            if($_SESSION['alert_type'] == 1){   // Warning Alert
+                ?>
+                <section class="alert fixed right-2 bottom-2" id="WarningAlert">
+                    <div class="text-amber-600 bg-amber-100 hover:text-white hover:bg-amber-600 rounded-lg transition-all flex justify-between shadow-lg p-3">
+                        <p class="self-center"><i class="scale-150 px-2 fa fa-exclamation-circle"></i></p>
+                        <p class="self-center px-5"><?php echo $_SESSION['alert']; ?></p>
+                        <button class="px-3 py-1 m-1 font-bold hover:text-amber-900 transition-all" onclick="PopupOut('WarningAlert')"><i class="fa fa-close"></i></button>
+                    </div>
+                </section>
+                <?php
+            };
+            if($_SESSION['alert_type'] == 2){   // Error Alert
+                ?>
+                <section class="alert fixed right-2 bottom-2" id="ErrorAlert">
+                    <div class="text-red-600 bg-red-100 hover:text-white hover:bg-red-600 rounded-lg transition-all flex justify-between shadow-lg p-3">
+                        <p class="self-center"><i class="scale-150 px-2 fa fa-times-circle"></i></p>
+                        <p class="self-center px-5"><?php echo $_SESSION['alert']; ?></p>
+                        <button class="px-3 py-1 m-1 font-bold hover:text-red-900 transition-all" onclick="PopupOut('ErrorAlert')"><i class="fa fa-close"></i></button>
+                    </div>
+                </section>
+                <?php
+            };
+        };
+        session_destroy();
+    ?>
+    <section class="py-16 mx-36">   <!-- Content wrapper -->
         <div class="bg-white p-4 mx-auto rounded-lg shadow-lg">
 
             <nav class="flex">   <!-- Button wrapper -->
