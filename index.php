@@ -189,8 +189,9 @@
                 </nav>
             </header>
             <main class="flex flex-row-reverse justify-end lg:justify-between mx-6 lg:mx-10">
-                <figure class="hidden lg:block">
+                <figure class="hidden lg:block flex shrink">
                     <img width="320px" src="" alt="" id="detailsImage" class="p-3 shadow-lg">
+                    <button id="detailsDelImage" class="w-full text-red-600 my-4 p-3 rounded-lg font-bold hover:bg-red-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('DelImgPopup');delImg()">Delete existing image</button>
                 </figure>
                 <section class="flex flex-col lg:mr-24 break-all">
                     <p class="py-1 my-1">ID&nbsp;of&nbsp;device: <br><b id="detailsId"></b></p>
@@ -308,6 +309,25 @@
                         <input class="hidden" type="number" name="D_id" id="deleteId">
                         <input class="hidden" type="number" name="D_confirm" id="deleteConfirm">
                         <button class="w-1/4 text-gray-700 p-3 mb-3 rounded-lg font-bold hover:bg-gray-500 hover:text-white hover:shadow-lg transition-all" onclick="PopupOut('DeletePopup');delFlag()">Cancel</i></button>
+                        <input type="submit" class="w-1/4 bg-red-100 text-red-600 p-3 mb-3 rounded-lg font-bold hover:bg-red-600 hover:text-white hover:shadow-lg transition-all" value="Delete"></input>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </section>
+
+    <section class="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden" id="DelImgPopup">   <!-- Delete image container -->
+        <div class="w-96 bg-white p-4 rounded-lg shadow-lg">   <!-- Delete image popup -->
+            <header class="p-4 text-center">
+                <h1 class="font-bold text-xl">Are you sure?</h1>
+            </header>
+            <main>
+                <form method="post" action="del_img.php">
+                    <p class="text-center">Are you sure to delete image of <b id="deletingImg" class="text-center break-all"></b>?</p>
+                    <div class="text-center pt-10 p-1 m-1">
+                        <input class="hidden" type="number" name="Dimg_id" id="delImgId">
+                        <input class="hidden" type="number" name="Dimg_confirm" id="delImgConfirm">
+                        <button class="w-1/4 text-gray-700 p-3 mb-3 rounded-lg font-bold hover:bg-gray-500 hover:text-white hover:shadow-lg transition-all" onclick="PopupOut('DelImgPopup');imgFlag()">Cancel</i></button>
                         <input type="submit" class="w-1/4 bg-red-100 text-red-600 p-3 mb-3 rounded-lg font-bold hover:bg-red-600 hover:text-white hover:shadow-lg transition-all" value="Delete"></input>
                     </div>
                 </form>

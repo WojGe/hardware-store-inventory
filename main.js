@@ -72,6 +72,7 @@ const detailsQuantity = document.getElementById("detailsQuantity");
 const detailsCondit = document.getElementById("detailsCondit");
 const detailsAd = document.getElementById("detailsAd");
 const detailsImage = document.getElementById("detailsImage");
+const deleteImage = document.getElementById("detailsDelImage");
 header.innerText = "Details of " + Gbrand + " " + Gmodel;
 detailsId.innerText = Gid;
 detailsCategory.innerText = Gcategory;
@@ -82,10 +83,12 @@ detailsCondit.innerText = Gcondition;
 detailsAd.innerText = Gdetails;
 if (Gimage!=0){
     detailsImage.classList.remove("hidden");
+    deleteImage.classList.remove("hidden");
     detailsImage.src="images/" + Gimage;
     detailsImage.alt="image of " + Gbrand +" "+ Gmodel; 
 }else{
     detailsImage.classList.add("hidden");
+    deleteImage.classList.add("hidden");
 }
 }
 
@@ -135,4 +138,27 @@ function del(){
 function delFlag(){
     const deleteFlag = document.getElementById("deleteConfirm");
     deleteFlag.value = 0;
+}
+
+
+
+/**
+ * DELETE IMAGE OF DEVICE
+ * 
+ * These functions sends id of a specified device to the form,
+ * set/removes the flag that prevents from the bug that deletes
+ * record via any button (cancel or delete) and asks the user
+ * if he/she is sure to delete image of the device.
+ */
+function delImg(){
+    const delImgId = document.getElementById("delImgId");
+    const delImgFlag = document.getElementById("delImgConfirm");
+    const paragraph = document.getElementById("deletingImg");
+    paragraph.innerText = Gbrand + " " + Gmodel;
+    delImgId.value = Gid;
+    delImgFlag.value = 1;
+}
+function imgFlag(){
+    const delImgFlag = document.getElementById("delImgConfirm");
+    delImgFlag.value = 0;
 }
