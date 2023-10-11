@@ -17,7 +17,7 @@ if(isset($_POST['Dimg_id']) && !empty($_POST['Dimg_id']) && isset($_POST['Dimg_c
             $sql_update = "UPDATE devices SET img = NULL WHERE devices.id = '$id_detele';";
             $query_update = mysqli_query($connection, $sql_update);
             $close = mysqli_close($connection);
-            $_SESSION['alert_type'] == 0;
+            $_SESSION['alert_type'] = 0;
             $_SESSION['alert'] = "The image has been successfully deleted";
             header("Location:index.php");
         };
