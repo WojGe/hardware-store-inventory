@@ -81,9 +81,9 @@
                                         <td class="p-1 capitalize truncate"><?php echo $row['category']; ?></td>
                                         <td class="p-1 capitalize truncate"><?php echo $row['brand']; ?></td>
                                         <td class="p-1 capitalize truncate"><?php echo $row['model']; ?></td>
-                                        <td class="p-1"><button class="px-4 py-1 m-1 rounded-lg bg-blue-100 text-blue-600 font-bold hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('DetailsPopup');data('<?php echo $row['id'];?>', '<?php echo $row['category'];?>', '<?php echo $row['brand'];?>', '<?php echo $row['model'];?>', '<?php echo $row['quantity'];?>', '<?php echo $row['condit'];?>', '<?php echo $row['details'];?>');details()">Details</button></td>
+                                        <td class="p-1"><button class="px-4 py-1 m-1 rounded-lg bg-blue-100 text-blue-600 font-bold hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('DetailsPopup');data('<?php echo $row['id'];?>', '<?php echo $row['category'];?>', '<?php echo $row['brand'];?>', '<?php echo $row['model'];?>', '<?php echo $row['quantity'];?>', '<?php echo $row['condit'];?>', '<?php echo $row['details'];?>', '<?php echo $row['img'];?>');details()">Details</button></td>
                                         <td class="p-1"><?php echo $row['quantity']; ?></td>
-                                        <td class="p-1"><button class="px-3 py-1 m-1 rounded-lg bg-red-100 text-red-600 font-bold hover:bg-red-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('DeletePopup');data('<?php echo $row['id'];?>', '<?php echo $row['category'];?>', '<?php echo $row['brand'];?>', '<?php echo $row['model'];?>', '<?php echo $row['quantity'];?>', '<?php echo $row['condit'];?>', '<?php echo $row['details'];?>');del()"><i class="fa fa-trash-o"></i></button></td>
+                                        <td class="p-1"><button class="px-3 py-1 m-1 rounded-lg bg-red-100 text-red-600 font-bold hover:bg-red-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('DeletePopup');data('<?php echo $row['id'];?>', '<?php echo $row['category'];?>', '<?php echo $row['brand'];?>', '<?php echo $row['model'];?>', '<?php echo $row['quantity'];?>', '<?php echo $row['condit'];?>', '<?php echo $row['details'];?>', '<?php echo $row['img'];?>');del()"><i class="fa fa-trash-o"></i></button></td>
                                     </tr>
                             <?php }
                             }?>
@@ -102,7 +102,7 @@
                 </nav>
             </header>
             <main>
-                <form method="post" action="add.php">
+                <form method="post" action="add.php" enctype="multipart/form-data">
                     <div class="p-1 m-1">
                         <label for="category">Category:</label>
                         <select name="category" class="w-full p-3 border rounded-lg bg-gray-100">
@@ -165,6 +165,10 @@
                         </select>
                     </div>
                     <div class="p-1 m-1">
+                    <label for="image">Image of the device:</label>
+                        <input type="file" name="image" class="w-full p-3" accept=".jpg, .jpeg, .png">
+                    </div>
+                    <div class="p-1 m-1">
                         <label for="details">Additional details:</label>
                         <input type="text" name="details" class="w-full p-3 border rounded-lg bg-gray-100">
                     </div>
@@ -185,8 +189,8 @@
                 </nav>
             </header>
             <main class="flex flex-row-reverse justify-end lg:justify-between mx-6 lg:mx-10">
-                <figure class="hidden lg:block flex shrink">
-                    <img width="250px" src="images/placeholder.png" alt="image of the device">
+                <figure class="hidden lg:block">
+                    <img width="320px" src="" alt="" id="detailsImage" class="p-3 shadow-lg">
                 </figure>
                 <section class="flex flex-col lg:mr-24 break-all">
                     <p class="py-1 my-1">ID&nbsp;of&nbsp;device: <br><b id="detailsId"></b></p>
@@ -199,7 +203,7 @@
                 </section>
             </main>
             <footer class="text-center pt-10 p-1 m-1">
-                    <button class="w-1/3 bg-blue-100 text-blue-600 p-3 mb-3 rounded-lg font-bold hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('EditPopup');PopupOut('DetailsPopup');edit()">Edit device</button>
+                    <button class="w-1/3 bg-blue-100 text-blue-600 p-3 mb-3 rounded-lg font-bold hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all" onclick="PopupIn('EditPopup');edit()">Edit device</button>
             </footer>
         </div>    
     </section>
@@ -213,7 +217,7 @@
                 </nav>
             </header>
             <main>
-                <form method="post" action="edit.php">
+            <form method="post" action="edit.php" enctype="multipart/form-data">
                     <input class="hidden" type="number" name="E_id" id="editId">
                     <div class="p-1 m-1">
                         <label for="E_category">Category:</label>
@@ -275,6 +279,10 @@
                             <option value="refurbished">Refurbished</option>
                             <option value="pre-owned">Pre-Owned</option>
                         </select>
+                    </div>
+                    <div class="p-1 m-1">
+                    <label for="image">New image:</label>
+                        <input type="file" name="E_image" class="w-full p-3" accept=".jpg, .jpeg, .png">
                     </div>
                     <div class="p-1 m-1">
                         <label for="E_details">Additional details: </label>

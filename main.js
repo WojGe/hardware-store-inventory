@@ -45,7 +45,7 @@ let Gnotes;
  * @param {string} condition - condition of the device
  * @param {string} details - details about the device
  */
-function data(id, category, brand, model, quantity, condition, details){
+function data(id, category, brand, model, quantity, condition, details, image){
     Gid = id;
     Gcategory = category;
     Gbrand = brand;
@@ -53,6 +53,7 @@ function data(id, category, brand, model, quantity, condition, details){
     Gquantity = quantity;
     Gcondition = condition;
     Gdetails = details;
+    Gimage = image;
 }
 
 
@@ -70,6 +71,7 @@ const detailsModel = document.getElementById("detailsModel");
 const detailsQuantity = document.getElementById("detailsQuantity");
 const detailsCondit = document.getElementById("detailsCondit");
 const detailsAd = document.getElementById("detailsAd");
+const detailsImage = document.getElementById("detailsImage");
 header.innerText = "Details of " + Gbrand + " " + Gmodel;
 detailsId.innerText = Gid;
 detailsCategory.innerText = Gcategory;
@@ -78,6 +80,13 @@ detailsModel.innerText = Gmodel;
 detailsQuantity.innerText = Gquantity;
 detailsCondit.innerText = Gcondition;
 detailsAd.innerText = Gdetails;
+if (Gimage!=0){
+    detailsImage.classList.remove("hidden");
+    detailsImage.src="images/" + Gimage;
+    detailsImage.alt="image of " + Gbrand +" "+ Gmodel; 
+}else{
+    detailsImage.classList.add("hidden");
+}
 }
 
 
@@ -108,6 +117,8 @@ editDetails.value = Gdetails;
 
 
 /**
+ * DELETE DEVICE
+ * 
  * These functions sends id of a specified device to the form,
  * set/removes the flag that prevents from the bug that deletes
  * record via any button (cancel or delete) and asks the user
